@@ -10,6 +10,14 @@ $router->map('GET', '/', function () {
     echo "Hello homepage";
 }, 'home');
 
+$router->map('GET', '/product', function () {
+    echo "Hello product list";
+}, 'about');
+
+$router->map('GET', '/product/[i:id]', function ($id) {
+    echo "Hello product with id : $id";
+}, 'product');
+
 // match current request url
 $match = $router->match();
 // call closure or throw 404 status`
