@@ -25,7 +25,7 @@ class Router
     public function match(string $method, string $uri): void
     {
         $uri = str_replace($this->basePath, '', $uri);
-        $uri = rtrim($uri, '/');
+        $uri = (substr($uri, -1) !== "/") ? $uri . "/" : $uri;
         foreach ($this->routes as $route) {
             if ($route->getMethod() === $method && preg_match($route->getAssociedRegex(), $uri)) {
                 $values = [];

@@ -42,7 +42,7 @@ class Route
             }
             $i++;
         }
-        $regex .= '$/';
+        $regex = (substr($regex, -1) === '/') ? $regex . '$/' : $regex . '\/$/';
         return $regex;
     }
 
