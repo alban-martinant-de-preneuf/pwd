@@ -21,4 +21,6 @@ $router->map(new Route('GET', '/product/[i:id]', function ($id) {
     echo "Hello product with id : $id";
 }));
 
+$router->map(new Route('GET', '/test/[i:te]', "TestController@index"));
+
 $router->match($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
