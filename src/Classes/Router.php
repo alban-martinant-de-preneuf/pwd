@@ -37,7 +37,19 @@ class Router
                         $values[$paramName] = $value;
                     }
                 }
-                call_user_func_array($route->getAction(), $values);
+
+                $action = $route->getAction();
+
+                if (is_string($action)) {
+                    $action = explode('@', $action);
+                    $controller = "App\\Controller\\" . $action[0];
+                    var_dump($controller);
+                    $controller = new $controller();
+                    $method = $action[1];
+                    $controller->$method(...$values);
+                } else [
+                    call_user_func_array($action, $values)
+                ];
                 return;
             }
         }
