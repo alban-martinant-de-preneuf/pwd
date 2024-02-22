@@ -33,7 +33,8 @@ class Router
                 array_shift($uriSegments);
                 foreach ($uriSegments as $key => $value) {
                     if (isset($route->getParams()[$key])) {
-                        $values[] = $value;
+                        $paramName = $route->getParams()[$key]['name'];
+                        $values[$paramName] = $value;
                     }
                 }
                 call_user_func_array($route->getAction(), $values);
