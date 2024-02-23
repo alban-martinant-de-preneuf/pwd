@@ -6,6 +6,6 @@ class TestController
 {
     public function index($te)
     {
-        echo "Hello from TestController@index with param : $te";
+        echo "Hello from TestController#index with param : $te";
     }
 }

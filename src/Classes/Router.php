@@ -41,7 +41,7 @@ class Router
                 $action = $route->getAction();
 
                 if (is_string($action)) {
-                    $action = explode('@', $action);
+                    $action = explode('#', $action);
                     $controller = "App\\Controller\\" . $action[0];
                     $controller = new $controller();
                     $method = $action[1];
