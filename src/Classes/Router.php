@@ -43,7 +43,6 @@ class Router
                 if (is_string($action)) {
                     $action = explode('@', $action);
                     $controller = "App\\Controller\\" . $action[0];
-                    var_dump($controller);
                     $controller = new $controller();
                     $method = $action[1];
                     $controller->$method(...$values);
